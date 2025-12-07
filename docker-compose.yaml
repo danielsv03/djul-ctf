@@ -1,0 +1,41 @@
+services:
+  pinguin:
+    build: ./victim1/webapp-readonly-sqli
+    container_name: ctf_victim1_web
+    networks:
+      ctf_internal:
+        ipv4_address: 172.20.0.10   # static IP for victim1
+    expose:
+      - "8000"
+
+  attacker:
+    build: ./attacker
+    container_name: ctf_attacker
+    ports:
+      - "2222:22"
+    networks:
+      public_net:
+      ctf_internal:
+        ipv4_address: 172.20.0.20   # static IP for attacker
+    cap_add:
+      - NET_RAW
+
+  elf:
+    build: ./victim2
+    container_name: ctf_victim2
+    networks:
+      ctf_internal:
+        ipv4_address: 172.20.0.30   # static IP for victim2
+    # no ports published
+
+
+networks:
+  public_net:
+    driver: bridge
+
+  ctf_internal:
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24      # define a subnet for static IP allocations
