@@ -56,10 +56,6 @@ def search():
     except Exception as e:
         return f"<pre>Database error: {e}</pre>", 200
 
-# Extra helper endpoint for debugging (internal use only)
-@app.route('/info')
-def info():
-    return {"service":"victim1-web-sqli","note":"internal-only"}, 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
