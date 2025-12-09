@@ -28,7 +28,6 @@ def index():
       Search product: <input name="q" />
       <input type="submit" value="Search" />
     </form>
-    <p>Hint: try single quotes in the search box.</p>
     </body></html>"""
 
 @app.route('/search')
