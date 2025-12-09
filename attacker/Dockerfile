@@ -84,7 +84,7 @@ RUN echo 'export HISTFILE=/dev/null' >> /home/ctf/.bashrc \
 RUN ln -sf /dev/null /home/ctf/.bash_history
 
 # Optional attacker flag
-RUN echo "You have reached the initial terminal! Information gathering is key, what else can you find?" > /home/ctf/attacker.txt
+RUN echo "You have reached the initial terminal! Information gathering is key, what else can you find? \n Maybe this is interesting: 172.28.0.0/24" > /home/ctf/attacker.txt
 
 # --- PERMISSION LOCKDOWN ---
 # Lock Home
