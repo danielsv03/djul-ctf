@@ -13,7 +13,7 @@ RUN useradd -m -s /bin/rbash ctf \
 
 # --- NMAP WRAPPER SCRIPT START ---
 RUN echo '#!/bin/bash' > /opt/nmap_wrapper.sh \
-    && echo 'MAX_SCANS=100' >> /opt/nmap_wrapper.sh \
+    && echo 'MAX_SCANS=9999' >> /opt/nmap_wrapper.sh \
     # ---------------------------------------------------- \
     # 1. CONCURRENCY CHECK \
     # ---------------------------------------------------- \
